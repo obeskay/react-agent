@@ -19,6 +19,7 @@ export const generateComponentsConfigurations = async (
   const dirPath = path.join(dir, containerPath);
   const composition = await readComponentsComposition(dirPath);
   try {
+    console.log(`THIS IS COMPOSITION`, composition);
     const configuration = await readComponentsConfigurations(dirPath);
     if (configuration) {
       console.log(
@@ -40,7 +41,8 @@ export const generateComponentsConfigurations = async (
         description: JSON.stringify(component),
       });
       // filter non existing components
-      const existingComponents = uiComponents.filter(doesComponentExist);
+      const existingComponents =
+        uiComponents?.components?.filter(doesComponentExist);
       return { ...component, uiComponents: existingComponents };
     } catch (e) {
       console.error(e);

@@ -37,7 +37,7 @@ export const saveComposedComponent =
     userStory,
   }: any) => {
     const componentExample = `import React from 'react';
-import { ${componentConfiguration.uiComponents.join(
+import { ${componentConfiguration?.uiComponents?.join(
       ", "
     )} } from '@react-agent/shadcn-ui'
 ${dependencies
@@ -58,10 +58,10 @@ export default ${componentName};
 Component Name:
 ${componentName}
 ---
-UI shadn component Dependencies (@react-agent/shadcn-ui):
-${componentConfiguration.uiComponents}
+UI shadcn component Dependencies (@react-agent/shadcn-ui):
+${componentConfiguration?.uiComponents || []}
 ---
-UI shadn component Implementations examples:
+UI shadcn component Implementations examples:
 ${getImplementationsExample(uiCompImplementations)}
 ---
 Dependencies:
@@ -112,9 +112,29 @@ export const generateComposedComponent =
     const userStory = await readUserStory(dirPath);
     const components = configurations.filter((config) => config.type === type);
     const generateComponent = async (component: Component) => {
-      const uiCompImplementations = await Promise.all(
-        component.uiComponents.map(getComponentImplementation)
-      );
+      // const uiCompImplementations = await Promise.all(
+      //   component?.uiComponents?.map(getComponentImplementation)
+      // );
+      let uiCompImplementations = [];
+      if (component?.uiComponents === undefined) {
+        console.log(
+          "skipping because uiComponent is undefined: ",
+          component.name,
+          "\n\n"
+        );
+      } else {
+        uiCompImplementations = await Promise.all(
+          component?.uiComponents?.map(async (CompName: string) => {
+            const uiComponent = await getComponentImplementation(CompName);
+            if (!uiComponent) {
+              console.log(
+                `generateComposedComponent: UI Component ${CompName} not found`
+              );
+            }
+            return uiComponent;
+          })
+        );
+      }
 
       const treeFlat = parseComposition(component);
       const dependencies =
@@ -150,7 +170,7 @@ export const generateComposedComponent =
         componentName: component.name,
         dependencies: dependenciesNames,
         implementations: moleculeImplementations,
-        uiCompImplementations: uiCompImplementations.filter((i) => i),
+        uiCompImplementations: uiCompImplementations?.filter((i) => i),
         componentConfiguration: component,
         userStory,
       });

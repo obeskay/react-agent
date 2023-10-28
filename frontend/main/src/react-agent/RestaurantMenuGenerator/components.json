@@ -1,0 +1,186 @@
+[
+  {
+    "type": "organism",
+    "name": "Header",
+    "layout": "flex h-16 items-center px-4 border-b",
+    "description": "Header section of the application",
+    "components": [
+      {
+        "type": "atom",
+        "name": "RestaurantSwitcher",
+        "layout": "flex",
+        "description": "Switch between different restaurant profiles"
+      },
+      {
+        "type": "molecule",
+        "name": "MenuNav",
+        "layout": "flex",
+        "description": "Navigation to different stages of menu creation process"
+      },
+      {
+        "type": "atom",
+        "name": "HeaderActions",
+        "layout": "flex",
+        "description": "Save function and account details access"
+      }
+    ]
+  },
+  {
+    "type": "molecule",
+    "name": "MenuNav",
+    "layout": "flex",
+    "description": "Navigation to different stages of menu creation process"
+  },
+  {
+    "type": "organism",
+    "name": "MenuContent",
+    "layout": "flex-1 space-y-4 p-8 pt-6",
+    "description": "Main content area for menu creation",
+    "components": [
+      {
+        "type": "atom",
+        "name": "MenuHeader",
+        "layout": "flex",
+        "description": "Input restaurant name, logo, and other details"
+      },
+      {
+        "type": "molecule",
+        "name": "Sections",
+        "layout": "flex space-y-2",
+        "description": "Sectioning of the menu items",
+        "components": [
+          {
+            "type": "organism",
+            "name": "DishCardsContainer",
+            "layout": "grid gap-4 md:grid-cols-2 lg:grid-cols-4",
+            "description": "Add, edit, or delete dishes with descriptions and prices"
+          },
+          {
+            "type": "atom",
+            "name": "DesignPreview",
+            "layout": "flex",
+            "description": "Real-time preview of the menu"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "molecule",
+    "name": "Sections",
+    "layout": "flex space-y-2",
+    "description": "Sectioning of the menu items",
+    "components": [
+      {
+        "type": "organism",
+        "name": "DishCardsContainer",
+        "layout": "grid gap-4 md:grid-cols-2 lg:grid-cols-4",
+        "description": "Add, edit, or delete dishes with descriptions and prices"
+      },
+      {
+        "type": "atom",
+        "name": "DesignPreview",
+        "layout": "flex",
+        "description": "Real-time preview of the menu"
+      }
+    ],
+    "uiComponents": [
+      "Box",
+      "Card",
+      "Button",
+      "Typography"
+    ]
+  },
+  {
+    "type": "organism",
+    "name": "DishCardsContainer",
+    "layout": "grid gap-4 md:grid-cols-2 lg:grid-cols-4",
+    "description": "Add, edit, or delete dishes with descriptions and prices"
+  },
+  {
+    "type": "organism",
+    "name": "ExportFunctionality",
+    "layout": "flex justify-end",
+    "description": "Generate and download the finished menu as PDF",
+    "uiComponents": [
+      "Button",
+      "DialogContent",
+      "DialogDescription",
+      "DialogTitle"
+    ]
+  },
+  {
+    "type": "page",
+    "name": "PDFMenuGenerator",
+    "layout": "hidden flex-col md:flex",
+    "description": "PDF Menu Generator for Restaurants",
+    "components": [
+      {
+        "type": "organism",
+        "name": "Header",
+        "layout": "flex h-16 items-center px-4 border-b",
+        "description": "Header section of the application",
+        "components": [
+          {
+            "type": "atom",
+            "name": "RestaurantSwitcher",
+            "layout": "flex",
+            "description": "Switch between different restaurant profiles"
+          },
+          {
+            "type": "molecule",
+            "name": "MenuNav",
+            "layout": "flex",
+            "description": "Navigation to different stages of menu creation process"
+          },
+          {
+            "type": "atom",
+            "name": "HeaderActions",
+            "layout": "flex",
+            "description": "Save function and account details access"
+          }
+        ]
+      },
+      {
+        "type": "organism",
+        "name": "MenuContent",
+        "layout": "flex-1 space-y-4 p-8 pt-6",
+        "description": "Main content area for menu creation",
+        "components": [
+          {
+            "type": "atom",
+            "name": "MenuHeader",
+            "layout": "flex",
+            "description": "Input restaurant name, logo, and other details"
+          },
+          {
+            "type": "molecule",
+            "name": "Sections",
+            "layout": "flex space-y-2",
+            "description": "Sectioning of the menu items",
+            "components": [
+              {
+                "type": "organism",
+                "name": "DishCardsContainer",
+                "layout": "grid gap-4 md:grid-cols-2 lg:grid-cols-4",
+                "description": "Add, edit, or delete dishes with descriptions and prices"
+              },
+              {
+                "type": "atom",
+                "name": "DesignPreview",
+                "layout": "flex",
+                "description": "Real-time preview of the menu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "organism",
+        "name": "ExportFunctionality",
+        "layout": "flex justify-end",
+        "description": "Generate and download the finished menu as PDF"
+      }
+    ]
+  }
+]

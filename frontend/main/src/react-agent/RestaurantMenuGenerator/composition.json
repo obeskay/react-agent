@@ -1,0 +1,68 @@
+{
+  "type": "page",
+  "name": "PDFTemplatePage",
+  "layout": "flex flex-col",
+  "description": "Page for generating PDF menu",
+  "components": [
+    {
+      "type": "organism",
+      "name": "Header",
+      "layout": "flex justify-between items-center p-4",
+      "description": "Header of the page",
+      "components": [
+        {
+          "type": "atom",
+          "name": "RestaurantSwitcher",
+          "layout": "flex items-center",
+          "description": "Switch between different restaurant profiles"
+        },
+        {
+          "type": "molecule",
+          "name": "MenuNav",
+          "layout": "flex items-center space-x-4",
+          "description": "Navigation menu for the page"
+        },
+        {
+          "type": "molecule",
+          "name": "HeaderActions",
+          "layout": "flex items-center space-x-4",
+          "description": "Actions to perform within the header"
+        }
+      ]
+    },
+    {
+      "type": "organism",
+      "name": "MenuContent",
+      "layout": "flex flex-wrap p-4",
+      "description": "Main content of the page",
+      "components": [
+        {
+          "type": "atom",
+          "name": "MenuHeader",
+          "layout": "w-full",
+          "description": "Input for restaurant name, logo and details"
+        },
+        {
+          "type": "molecule",
+          "name": "Sections",
+          "layout": "flex flex-wrap",
+          "description": "Sections for categorizing menu items",
+          "components": [
+            {
+              "type": "organism",
+              "name": "DishCardsContainer",
+              "layout": "grid grid-cols-4 gap-8",
+              "description": "Container for dishes cards"
+            },
+            {
+              "type": "atom",
+              "name": "DesignPreview",
+              "layout": "w-full h-full",
+              "description": "Preview of the design"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+[
+  {
+    "type": "organism",
+    "name": "Header",
+    "layout": "flex justify-between items-center p-4",
+    "description": "The header of the page containing the RestaurantSwitcher, MenuNav, and HeaderActions components.",
+    "components": [
+      {
+        "type": "atom",
+        "name": "RestaurantSwitcher",
+        "layout": "flex w-48 h-12 items-center justify-center",
+        "description": "Toggle between different restaurant profiles",
+        "components": []
+      },
+      {
+        "type": "atom",
+        "name": "MenuNav",
+        "layout": "flex justify-center items-center space-x-2",
+        "description": "Navigate through the creation stages.",
+        "components": []
+      },
+      {
+        "type": "atom",
+        "name": "HeaderActions",
+        "layout": "flex justify-end items-center space-x-2",
+        "description": "Save current progress and access account details",
+        "components": []
+      }
+    ],
+    "uiComponents": [
+      "Box",
+      "Button"
+    ]
+  },
+  {
+    "type": "organism",
+    "name": "MenuContent",
+    "layout": "flex flex-col space-y-4",
+    "description": "The main content of the PDF Menu Generator",
+    "components": [
+      {
+        "type": "atom",
+        "name": "MenuHeader",
+        "layout": "flex items-center justify-between space-x-2 p-4",
+        "description": "Input restaurant details including name and logo",
+        "components": []
+      },
+      {
+        "type": "organism",
+        "name": "Sections",
+        "layout": "flex flex-col space-y-4 p-4",
+        "description": "Categorize menu items",
+        "components": [
+          {
+            "type": "atom",
+            "name": "DishCardsContainer",
+            "layout": "grid grid-cols-3 gap-4",
+            "description": "Add, edit, or delete dishes, descriptions, and prices",
+            "components": []
+          },
+          {
+            "type": "atom",
+            "name": "DesignPreview",
+            "layout": "flex justify-center items-center p-4",
+            "description": "Real-time menu preview as content is adjusted",
+            "components": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "organism",
+    "name": "Sections",
+    "layout": "flex flex-col space-y-4 p-4",
+    "description": "Categorize menu items",
+    "components": [
+      {
+        "type": "atom",
+        "name": "DishCardsContainer",
+        "layout": "grid grid-cols-3 gap-4",
+        "description": "Add, edit, or delete dishes, descriptions, and prices",
+        "components": []
+      },
+      {
+        "type": "atom",
+        "name": "DesignPreview",
+        "layout": "flex justify-center items-center p-4",
+        "description": "Real-time menu preview as content is adjusted",
+        "components": []
+      }
+    ],
+    "uiComponents": []
+  },
+  {
+    "type": "page",
+    "name": "PDFMenuGeneratorPage",
+    "layout": "flex flex-col w-full",
+    "description": "PDF Menu Generator for Restaurants",
+    "components": [
+      {
+        "type": "organism",
+        "name": "Header",
+        "layout": "flex justify-between items-center p-4",
+        "description": "The header of the page containing the RestaurantSwitcher, MenuNav, and HeaderActions components.",
+        "components": [
+          {
+            "type": "atom",
+            "name": "RestaurantSwitcher",
+            "layout": "flex w-48 h-12 items-center justify-center",
+            "description": "Toggle between different restaurant profiles",
+            "components": []
+          },
+          {
+            "type": "atom",
+            "name": "MenuNav",
+            "layout": "flex justify-center items-center space-x-2",
+            "description": "Navigate through the creation stages.",
+            "components": []
+          },
+          {
+            "type": "atom",
+            "name": "HeaderActions",
+            "layout": "flex justify-end items-center space-x-2",
+            "description": "Save current progress and access account details",
+            "components": []
+          }
+        ]
+      },
+      {
+        "type": "organism",
+        "name": "MenuContent",
+        "layout": "flex flex-col space-y-4",
+        "description": "The main content of the PDF Menu Generator",
+        "components": [
+          {
+            "type": "atom",
+            "name": "MenuHeader",
+            "layout": "flex items-center justify-between space-x-2 p-4",
+            "description": "Input restaurant details including name and logo",
+            "components": []
+          },
+          {
+            "type": "organism",
+            "name": "Sections",
+            "layout": "flex flex-col space-y-4 p-4",
+            "description": "Categorize menu items",
+            "components": [
+              {
+                "type": "atom",
+                "name": "DishCardsContainer",
+                "layout": "grid grid-cols-3 gap-4",
+                "description": "Add, edit, or delete dishes, descriptions, and prices",
+                "components": []
+              },
+              {
+                "type": "atom",
+                "name": "DesignPreview",
+                "layout": "flex justify-center items-center p-4",
+                "description": "Real-time menu preview as content is adjusted",
+                "components": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "atom",
+        "name": "ExportButton",
+        "layout": "fixed bottom-4 right-4 w-16 h-16",
+        "description": "One-click generation and download of the final menu in PDF",
+        "components": []
+      }
+    ],
+    "uiComponents": []
+  }
+]

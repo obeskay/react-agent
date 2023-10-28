@@ -15,6 +15,7 @@ const step6 = generateDemo;
 
 const fullFlow = async (containerPath: string) => {
   await step1(containerPath); // Advised manual step: Verify skeleton with <JsonSkeleton json={jsonComposition} /> before proceeding
+
   await step2(containerPath); // Advised manual step: Verify uiComponents, make sure they fit the skeleton and user story
   await step3(containerPath); // Advised manual step: Verify components, delete components and re-generate them if needed
   await step4(containerPath); // Advised manual step: Verify components, delete components and re-generate them if needed
@@ -23,7 +24,7 @@ const fullFlow = async (containerPath: string) => {
   // await step7(containerPath);
 };
 
-const CONTAINER_PATH = "AnalyticsDashboard";
+const CONTAINER_PATH = "RestaurantMenuGenerator2";
 export const generateComponents = async () => {
   console.log("generateComponents start");
   await fullFlow(CONTAINER_PATH);

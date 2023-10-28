@@ -24,7 +24,7 @@ export const saveComponent =
     componentConfiguration,
     userStory,
   }: any) => {
-    const depString = dependencies.length
+    const depString = dependencies?.length
       ? `import { ${dependencies.join(", ")} } from '@react-agent/shadcn-ui';\n`
       : "";
     const componentExample = `import React from 'react';
@@ -83,16 +83,24 @@ export const generateComponentsFromConfigurations = async (
 ) => {
   const dir = LOCAL_COMPONENTS_DIR;
   const dirPath = path.join(dir, containerPath);
+
+  console.log("dirPath", dirPath, "\n\n");
   const configurations = await readComponentsConfigurations(dirPath);
 
+  // console.log("configurations", configurations, "\n\n");
+
   const userStory = await readUserStory(dirPath);
+
   const components = configurations.filter(
     (config) => config.type === "molecule"
   );
 
+  console.log("components.length", components.length, "\n\n");
+
   const generateComponent = async (component: Component) => {
-    const implementations = await Promise.all(
-      component.uiComponents.map(getComponentImplementation)
+    console.log("generando el componente: ", component.name, "\n\n");
+    const implementations = await component?.components?.map((component) =>
+      getComponentImplementation(component.name)
     );
 
     const parentComponent = configurations
@@ -126,11 +134,11 @@ export const generateComponentsFromConfigurations = async (
     await saveComponent(componentDir)({
       componentName: component.name,
       dependencies: component.uiComponents,
-      implementations: implementations.filter((i) => i),
+      implementations: implementations?.filter((i) => i),
       componentConfiguration: component,
       userStory,
     });
     console.log(`generateComponent: ${component.name} saved`);
   };
-  await Promise.all(components.map(generateComponent));
+  await Promise.all(components?.map(generateComponent));
 };

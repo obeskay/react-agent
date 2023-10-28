@@ -62,7 +62,7 @@ export class ReactComponentGenerator {
         role: "user",
         content: `---
           Instructions:
-          Make sure it's a working code, don't assume that I'm going to change or implement anything.
+          Make sure it's a working code and that the functionalities in the description can be executed perfectly, don't assume that I'm going to change or implement anything. Make sure that the props passed to the child components are the same name as their interface parameters and props implementation.
           Assume I have React Typescript setup in my project.
           Don't use any external libraries but @react-agent/shadcn-ui which is interal library, recharts for charts.
           ---

@@ -28,10 +28,10 @@ export function flattenComponents(composition: Component): {
 
   function flatten(component: Component) {
     flattenedComponents[component.name] = component;
-    component.components.forEach(flatten);
+    component?.components?.forEach(flatten);
   }
 
-  composition.components.forEach(flatten);
+  composition?.components?.forEach(flatten);
 
   return flattenedComponents;
 }
@@ -70,19 +70,19 @@ export const parseComposition = (composition: Component) => {
 };
 
 export const getImplementationsExample = (implementations: any[]) => {
-  if (implementations.length === 0) return "";
-  const maxLength = 30000 / implementations.length;
+  if (implementations?.length === 0) return "";
+  const maxLength = 30000 / implementations?.length;
 
   const chooseImpl = (impl: any) => {
-    if (impl.length.uiComponentCode + impl.length.demoCode < maxLength)
+    if (impl?.length?.uiComponentCode + impl?.length?.demoCode < maxLength)
       return parseImplementation(impl);
-    if (impl.length.demoCode < maxLength)
+    if (impl?.length?.demoCode < maxLength)
       return parseImplementation({ ...impl, demoOnly: true });
 
     return "";
   };
 
-  const text = implementations.map(chooseImpl).filter(Boolean).join("\n");
+  const text = implementations?.map(chooseImpl).filter(Boolean).join("\n");
   return text;
 };
 

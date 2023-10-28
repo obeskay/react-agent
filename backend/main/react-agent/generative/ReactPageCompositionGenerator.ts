@@ -167,6 +167,8 @@ export class ReactPageCompositionGenerator {
       2. **Organize Components:** Organize the components into a hierarchical structure (e.g., atoms, molecules, organisms, pages) to facilitate understanding of the component relationships and dependencies.
       3. **Map Dependencies:** Determine the dependencies between components, such as parent-child relationships, and include this information in the component tree.
       4. **Review & Refine:** Review the component tree with the development team, product owner, and UX/UI designer to ensure accuracy and completeness. Refine the component tree as necessary based on feedback and changes to the application requirements.
+      5. **Implement Components:** Implement the components using the component tree as a guide. Ensure that any changes to the component tree are reflected in the code. Use TailwindCSS for styling components.
+      
       
       **Component Tree Interface**
       \`\`\`typescript
