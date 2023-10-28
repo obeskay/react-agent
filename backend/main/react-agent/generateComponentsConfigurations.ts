@@ -41,8 +41,15 @@ export const generateComponentsConfigurations = async (
         description: JSON.stringify(component),
       });
       // filter non existing components
-      const existingComponents =
-        uiComponents?.components?.filter(doesComponentExist);
+      if (!component?.uiComponents?.some(doesComponentExist)) {
+        console.log(
+          "skipping because uiComponent is undefined: ",
+          component.name,
+          "\n\n"
+        );
+        return component;
+      }
+      const existingComponents = uiComponents?.filter(doesComponentExist);
       return { ...component, uiComponents: existingComponents };
     } catch (e) {
       console.error(e);

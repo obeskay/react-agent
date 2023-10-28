@@ -1,0 +1,74 @@
+{
+  "type": "page",
+  "name": "PDFMenuPage",
+  "layout": "hidden flex-col md:flex",
+  "description": "PDF Menu Generator for Restaurants",
+  "components": [
+    {
+      "type": "organism",
+      "name": "Header",
+      "layout": "flex h-16 items-center px-4 border-b",
+      "description": "Header containing the RestaurantSwitcher, MenuNav, and Header Actions.",
+      "components": [
+        {
+          "type": "molecule",
+          "name": "RestaurantSwitcher",
+          "layout": "flex items-center space-x-2",
+          "description": "Toggle between different restaurant profiles",
+          "components": []
+        },
+        {
+          "type": "molecule",
+          "name": "MenuNav",
+          "layout": "flex items-center space-x-2",
+          "description": "Navigate through the creation stages",
+          "components": []
+        },
+        {
+          "type": "molecule",
+          "name": "HeaderActions",
+          "layout": "flex items-center space-x-2",
+          "description": "Save current progress and access account details",
+          "components": []
+        }
+      ]
+    },
+    {
+      "type": "organism",
+      "name": "MenuContent",
+      "layout": "flex-1 space-y-4 p-8 pt-6",
+      "description": "Main content section of the PDF Menu Generator",
+      "components": [
+        {
+          "type": "molecule",
+          "name": "MenuHeader",
+          "layout": "flex items-center justify-between space-y-2",
+          "description": "Input restaurant details including name and logo",
+          "components": []
+        },
+        {
+          "type": "atom",
+          "name": "Sections",
+          "layout": "space-y-4",
+          "description": "Categorize menu items",
+          "components": [
+            {
+              "type": "molecule",
+              "name": "DishCardsContainer",
+              "layout": "grid gap-4 md:grid-cols-2 lg:grid-cols-4",
+              "description": "Add, edit, or delete dishes, descriptions, and prices",
+              "components": []
+            },
+            {
+              "type": "molecule",
+              "name": "DesignPreview",
+              "layout": "grid gap-4 md:grid-cols-2 lg:grid-cols-7",
+              "description": "Real-time menu preview as content is adjusted",
+              "components": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

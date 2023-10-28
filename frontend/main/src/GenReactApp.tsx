@@ -1,44 +1,75 @@
 import { BrowserRouter } from 'react-router-dom';
 import '@react-agent/shadcn-ui/dist/output.css';
 import '../dist/output.css';
-import { JsonSkeleton } from '@react-agent/shadcn-ui';
-
-import jsonCompositionExample from './react-agent/AnalyticsDashboardExample/composition.json';
-import AnalyticsDashboardPageExampleDemo from './react-agent/AnalyticsDashboardExample/demo';
-
-import landingPageJsonComposition from './react-agent/SaaSLandingPageExample/composition.json';
-import SaasCrmLandingPageDemo from './react-agent/SaaSLandingPageExample/demo';
-
-import RestaurantMenuGenerator from './react-agent/RestaurantMenuGenerator';
-
-// import jsonComposition from './react-agent/AnalyticsDashboard/composition.json';
-// import AnalyticsDashboardPageDemo from './react-agent/AnalyticsDashboard/demo';
+import QRCodeGenerator from './react-agent/QRCodeGenerator2';
 
 // Example of generated React component from the JSON composition
 const DashboardExample = () => {
-  return <AnalyticsDashboardPageExampleDemo />; // Example demo
-  // return <JsonSkeleton json={jsonCompositionExample} />; // Example JSON skeleton
+  return null;
 };
 
 // Example of generated React component from the JSON composition
 const SaasCrmLandingPageExample = () => {
-  return <SaasCrmLandingPageDemo />; // Example demo
-  // return <JsonSkeleton json={landingPageJsonComposition} />; // Example JSON skeleton
+  return null;
 };
+
 // Uncomment after implementing the AnalyticsDashboard component (yarn backend:dev (read README.md))
 // You might need to do some debugging as the generated code is not perfect nor production ready yet
 const AnalyticsDashboard = () => {
-  // return <AnalyticsDashboardPageDemo />;
-  // return <JsonSkeleton json={jsonComposition} />;
+  return null;
 };
 
 function App() {
+  const headerProps = {
+    restaurants: [
+      { id: 'example1', name: 'Example1' },
+      { id: 'example2', name: 'Example2' },
+    ],
+    activePage: 'menuContent',
+    selectedRestaurant: 'example2',
+    onRestaurantChange: (restaurantId: string) => {
+      console.log('Updated restaurant id: ' + restaurantId);
+    },
+    onSave: () => {
+      console.log('Saved');
+    },
+    onProfile: () => {
+      console.log('Profile');
+    },
+  };
+
+  const menuContentProps = {
+    menuName: 'My menu',
+    setMenuName: (menuName: string) => {
+      console.log('Updated menu name: ' + menuName);
+    },
+    logo: null as any,
+    setLogo: (logo: File) => {
+      console.log('Updated logo: ' + logo.name);
+    },
+    dishes: [{ name: 'Chicken', description: 'Lorem ipsum', price: 12 }],
+    onAddDish: () => {
+      console.log('Added dish');
+    },
+    onUpdateDish: (index: number, dish: any) => {
+      console.log('Updated dish at index ' + index + ' to ' + dish);
+    },
+    onDeleteDish: (index: number) => {
+      console.log('Deleted dish at index: ' + index);
+    },
+  };
+
   return (
-    <BrowserRouter>
-      <RestaurantMenuGenerator />
-      {/* <AnalyticsDashboard /> */}
-      {/* <SaasCrmLandingPageExample /> */}
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <div className="h-screen">
+          <QRCodeGenerator headerProps={headerProps} menuContentProps={menuContentProps} />
+          {/* <DashboardExample /> */}
+          {/* <SaasCrmLandingPageExample /> */}
+          {/* <AnalyticsDashboard /> */}
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
